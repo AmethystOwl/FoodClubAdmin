@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Foody Admin Panel</string>
+    <string name="customer_reviews">Customer Reviews</string>
+    <string name="report_customer">Report Customer</string>
+    <string name="menu">Menu</string>
+    <string name="logout">Logout</string>
+    <string name="edit_info">Edit Info</string>
+    <string name="login_to_your_account">Login to your account</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="dollar_sign">$</string>
+    <string name="orders">Orders</string>
+    <string-array name="orderState">
+        <item>Order placed</item>
+        <item>Order accepted</item>
+        <item>Order rejected</item>
+        <item>Order canceled</item>
+        <item>Order\'s out for delivery</item>
+        <item>Order delivered</item>
+    </string-array>
+</resources>
