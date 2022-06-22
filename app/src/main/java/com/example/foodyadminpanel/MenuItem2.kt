@@ -1,18 +1,18 @@
 package com.example.foodyadminpanel
 
+
 import android.os.Parcelable
 import com.google.firebase.firestore.Exclude
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MenuItem(
-    @Exclude var id: String?,
-    @Exclude var parentId: String?,
+data class MenuItem2(
+    @get:Exclude var id: String?,
+    @get:Exclude var parentId: String?,
     var name: String?,
-    var price: Double?,
-    var quantity: Long?,
-    var total: Double?,
+    var description: String?,
     var imageUrl: String?,
+    var price: Double?,
 ) : Parcelable {
-    constructor() : this(null, null, null, null, null, null, null)
+    constructor() : this(null, null, null, null, null, null)
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="onDeleteClickListener"
+            type="com.example.foodyadminpanel.PreviewPhotoAdapter.DeletePreviewItem" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_margin="@dimen/dp_10"
+        android:layout_width="100dp"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/previewPhoto"
+            bindImage="@{imageUrl}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="fitXY"
+ />
+
+        <ImageView
+            android:id="@+id/removeImageImageView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="end|top"
+            android:onClick="@{() -> onDeleteClickListener.onItemClick(imageUrl,position)}"
+            android:src="@drawable/ic_baseline_remove_circle_outline_24"
+/>
+    </FrameLayout>
+</layout>

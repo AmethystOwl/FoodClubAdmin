@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="restaurant"
+            type="com.example.foodyadminpanel.Restaurant" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    bindImage="@{restaurant.iconImageUrl}"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="35dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nameInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:inputType="text"
+                        android:text="@{restaurant.name}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/locationInputLayout"
+                    android:layout_width="409dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/locationInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Location"
+                        android:text="@{restaurant.location}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/workingHoursInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/locationInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/workingHoursInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Working Hours"
+                        android:text="@{restaurant.workingHours}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/cuisinesHeaderTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="20dp"
+                    android:text="Cuisines"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/workingHoursInputLayout" />
+
+                <CheckBox
+                    android:id="@+id/newCuisineCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:text="New Cuisine"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cuisinesHeaderTextView" />
+
+                <EditText
+                    android:id="@+id/newCuisineEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:hint="Cuisine Name"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/newCuisineCheckBox"
+                    app:layout_constraintEnd_toStartOf="@id/addCuisine"
+                    app:layout_constraintStart_toEndOf="@id/newCuisineCheckBox"
+                    app:layout_constraintTop_toTopOf="@id/newCuisineCheckBox" />
+
+                <ImageView
+                    android:id="@+id/addCuisine"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_round_add_circle_outline_48"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/newCuisineEditText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/newCuisineEditText" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cuisineRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/newCuisineCheckBox"
+                    tools:listitem="@layout/item_cuisine" />
+
+
+                <TextView
+                    android:id="@+id/photosHeaderTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="20dp"
+                    android:text="Preview Photos"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cuisineRecyclerView" />
+
+                <ImageButton
+                    android:id="@+id/photosAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    app:layout_constraintBottom_toBottomOf="@id/photosHeaderTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/photosHeaderTextView"
+                    app:srcCompat="@drawable/ic_round_add_circle_outline_48" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/photosRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/photosHeaderTextView"
+                    app:spanCount="3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/saveFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_baseline_save_24"
+            tools:ignore="ContentDescription" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

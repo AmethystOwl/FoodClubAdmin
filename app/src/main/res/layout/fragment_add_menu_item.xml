@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="menuItem"
+            type="com.example.foodyadminpanel.MenuItem2" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".AddMenuItemFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/menuItemImageView"
+                bindImage="@{menuItem.imageUrl}"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/dp_20"
+                android:scaleType="fitXY"
+                android:src="@drawable/giphy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menuItemImageView">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Name"
+                    android:inputType="text"
+                    android:text="@{menuItem.name}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descriptionInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:text="@{menuItem.description}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/priceInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/priceInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Price"
+                    android:inputType="numberDecimal"
+                    android:text="@{menuItem.price.toString()}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/updateButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="Upload"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <CheckBox
+                android:id="@+id/newCategoryCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="New Category"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceInputLayout" />
+
+            <EditText
+                android:id="@+id/newCategoryEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:hint="Category Name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:lines="1"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@id/newCategoryCheckBox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/newCategoryCheckBox"
+                app:layout_constraintTop_toTopOf="@id/newCategoryCheckBox" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoriesRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newCategoryCheckBox"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_category" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

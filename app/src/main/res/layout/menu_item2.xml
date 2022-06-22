@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="menuItem"
+            type="com.example.foodyadminpanel.MenuItem2" />
+
+        <variable
+            name="onMenuItemClickListener"
+            type="com.example.foodyadminpanel.MenuItemAdapter2.OnMenuItemClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> onMenuItemClickListener.onClick(menuItem)}"
+            app:cardCornerRadius="@dimen/dp_10"
+            app:cardElevation="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/itemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:text="@{menuItem.name}"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Four Cheese Pizza" />
+
+                <TextView
+                    android:id="@+id/itemDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="5dp"
+                    android:maxLines="3"
+                    android:text="@{menuItem.description}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@+id/foodImageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/itemName"
+                    tools:text="Desc" />
+
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:text="@{menuItem.price.toString()}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/itemDesc"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/priceTextViewPlaceHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20sp"
+                    android:text="EGP"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/priceTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/itemDesc" />
+
+                <ImageView
+                    android:id="@+id/foodImageView"
+                    bindImage="@{menuItem.imageUrl}"
+                    android:layout_width="100dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</layout>

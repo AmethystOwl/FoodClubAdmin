@@ -1,30 +1,21 @@
 package com.example.foodyadminpanel
 
+
 import android.os.Parcelable
+import com.google.firebase.firestore.Exclude
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Restaurant(
-    // editable
+    @Exclude var id: String?,
     var name: String?,
-    var cuisines: ArrayList<String>?,
-    var iconImageUrl: String?,
+    var rating: Double? = 0.0,
+    var noOfReviews: Long? = 0,
     var location: String?,
+    var iconImageUrl: String? = null,
+    var cuisines: ArrayList<String>?,
     var foodPreviewList: ArrayList<String>?,
-    var openNow: Boolean?,
-
-    // read-only
-    val rating: Double? = 0.0,
-    val noOfReviews: Long? =0,
+    var workingHours: String?
 ) : Parcelable {
-    constructor() : this(
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-    )
+    constructor() : this(null, null, null, null, null, null, null, null, null)
 }

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.foodyadminpanel.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="Login" >
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -15,13 +16,56 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.foodyadminpanel.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="Home" >
         <action
             android:id="@+id/action_homeFragment_to_ordersFragment"
             app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editInfoFragment"
+            app:destination="@id/editInfoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/ordersFragment"
         android:name="com.example.foodyadminpanel.OrdersFragment"
-        android:label="OrdersFragment" />
+        android:label="Orders" />
+    <fragment
+        android:id="@+id/editInfoFragment"
+        android:name="com.example.foodyadminpanel.EditInfoFragment"
+        android:label="Edit Info" >
+        <argument
+            android:name="restaurant"
+            app:argType="com.example.foodyadminpanel.Restaurant" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.foodyadminpanel.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_menuItemFragment"
+            app:destination="@id/menuItemFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_addMenuItemFragment"
+            app:destination="@id/addMenuItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuItemFragment"
+        android:name="com.example.foodyadminpanel.MenuItemFragment"
+        android:label="Edit Item"
+        tools:layout="@layout/fragment_menu_item" >
+        <argument
+            android:name="menuItem"
+            app:argType="com.example.foodyadminpanel.MenuItem2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMenuItemFragment"
+        android:name="com.example.foodyadminpanel.AddMenuItemFragment"
+        android:label="AddMenuItemFragment" >
+        <argument
+            android:name="categories"
+            app:argType="com.example.foodyadminpanel.MenuCategory[]" />
+    </fragment>
 </navigation>

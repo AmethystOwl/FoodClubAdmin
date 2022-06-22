@@ -12,22 +12,33 @@ import com.example.foodyadminpanel.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
-
+    private var restaurant: Restaurant? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel.getRestaurantInfo()
+
         viewModel.restaurantInfo.observe(viewLifecycleOwner) {
             when (it) {
                 is DataState.Success -> {
-                    binding.restaurant = it.data
+                    restaurant = it.data
+                    binding.restaurant = restaurant
                 }
+                else -> {}
             }
         }
         binding.ordersCardView.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToOrdersFragment())
+        }
+        binding.menuCardView.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMenuFragment())
+        }
+        binding.infoCardView.setOnClickListener {
+            if (restaurant != null) {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToEditInfoFragment(restaurant!!))
+            }
         }
         return binding.root
 

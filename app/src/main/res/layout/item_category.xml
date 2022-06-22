@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.example.foodyadminpanel.MenuCategory" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="onCategorySelected"
+            type="com.example.foodyadminpanel.MenuCategoryAdapter2.OnMenuCategorySelected" />
+
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/selectedCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{category.isSelected()}"
+            android:onClick="@{() -> onCategorySelected.onSelect(category,position)}"
+            android:text="@{category.categoryName}" />
+    </LinearLayout>
+</layout>

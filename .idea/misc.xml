@@ -6,15 +6,28 @@
         <entry key="app/src/main/res/drawable/background_gradiant.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/ic_background_pattern.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/ic_baseline_fastfood_24.xml" value="0.1755" />
+        <entry key="app/src/main/res/drawable/ic_baseline_remove_circle_outline_24.xml" value="0.2395" />
         <entry key="app/src/main/res/drawable/ic_baseline_star_half_24.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/ic_iconly_bulk_buy.xml" value="0.1755" />
         <entry key="app/src/main/res/drawable/ic_outline_restaurant_menu_24.xml" value="0.1755" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.340625" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/ic_round_add_circle_48.xml" value="0.2395" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/category_layout.xml" value="0.13723813595553655" />
+        <entry key="app/src/main/res/layout/fragment_add_menu_item.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_edit_info.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_menu_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_orders.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_category.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_cuisine.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_cuisine_header.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_order.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_preview_photo.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_dialog_pick_image.xml" value="0.33" />
         <entry key="app/src/main/res/layout/menu_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/menu_item2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/user_order.xml" value="0.18691588785046728" />
       </map>
     </option>
